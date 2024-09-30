@@ -14,22 +14,27 @@ import { TranslateModule }   from '@ngx-translate/core';
 
 // Internal modules
 import { environment }       from '@env/environment';
-
+import { ReownWalletConnectService } from '@services/reown-wallet-connect.service';
+import { WalletConnectState } from '@enums/wallets-connect-state.enum';
+import { CommonModule } from '@angular/common';
 @Component({
   selector    : 'app-layout-header',
   templateUrl : './layout-header.component.html',
   styleUrls   : ['./layout-header.component.scss'],
   standalone  : true,
-  imports     : [RouterLink, NgbCollapse, RouterLinkActive, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, TranslateModule]
+  imports     : [RouterLink, NgbCollapse, RouterLinkActive, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, TranslateModule, CommonModule]
 })
 export class LayoutHeaderComponent implements OnInit
 {
   public appName         : string  = environment.appName;
   public isMenuCollapsed : boolean = true;
-
+  walletConnectState$ = this.walletconnectService.state$;
+  walletAddress$ = this.walletconnectService.address$
+  WalletConnectState = WalletConnectState
   constructor
   (
     private router : Router,
+    private walletconnectService: ReownWalletConnectService
   )
   {
 
@@ -54,6 +59,13 @@ export class LayoutHeaderComponent implements OnInit
     this.router.navigate(['/auth/login']);
   }
 
+  public async connectWallet(): Promise<void> {
+    this.walletconnectService.connectWallet()
+  }
+
+  public async disconnectWallet(): Promise<void> {
+    this.walletconnectService.disconnectWallet()
+  }
   // -------------------------------------------------------------------------------
   // NOTE Computed props -----------------------------------------------------------
   // -------------------------------------------------------------------------------
@@ -69,5 +81,4 @@ export class LayoutHeaderComponent implements OnInit
   // -------------------------------------------------------------------------------
   // NOTE Subscriptions ------------------------------------------------------------
   // -------------------------------------------------------------------------------
-
 }

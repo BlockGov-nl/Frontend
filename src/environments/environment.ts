@@ -17,8 +17,8 @@ const baseUrl = scheme + host + port + path;
 
 export const environment = {
   production      : false,
-  version         : packageInfo.version,
-  appName         : 'EasyAngular',
+  version         : "packageInfo.version",
+  appName         : 'BlockGov',
   envName         : EnvName.LOCAL,
   defaultLanguage : 'en',
   apiBaseUrl      : baseUrl,

@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit
     setTimeout(_ =>
     {
       this.storeService.isLoading.set(false);
-    }, 2000);
+    }, 100);
   }
 
   // -------------------------------------------------------------------------------

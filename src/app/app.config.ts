@@ -14,6 +14,7 @@ import { withInMemoryScrolling }  from '@angular/router';
 import { withRouterConfig }       from '@angular/router';
 
 // External modules
+import { CookieService }          from 'ngx-cookie-service';
 import { TranslateModule }        from '@ngx-translate/core';
 import { TranslateLoader }        from '@ngx-translate/core';
 import { TranslateHttpLoader }    from '@ngx-translate/http-loader';
@@ -69,7 +70,8 @@ export const appConfig : ApplicationConfig = {
     // Services
     StoreService,
     AppService,
-
+    CookieService,
+    
     // Pipes
     DatePipe,
 
