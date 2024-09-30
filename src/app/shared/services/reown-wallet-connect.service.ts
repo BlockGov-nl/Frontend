@@ -18,16 +18,10 @@ export class ReownWalletConnectService {
  
   private chains= [
     {
-      id: '0x1',
-      token: 'ETH',
-      label: 'Ethereum Mainnet',
-      rpcUrl: 'https://mainnet.infura.io/v3/<INFURA_KEY>'
-    },
-    {
-      id: '0x2105',
-      token: 'ETH',
-      label: 'Base',
-      rpcUrl: 'https://mainnet.base.org'
+      id: '0x13881',  // Polygon Testnet (Mumbai) chain ID
+      token: 'POL',
+      label: 'Polygon Testnet (Mumbai)',
+      rpcUrl: 'https://rpc-mumbai.maticvigil.com'  // Common RPC URL for Mumbai Testnet
     }
   ]
 

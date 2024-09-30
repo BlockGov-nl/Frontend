@@ -28,7 +28,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
 
-      <button *ngSwitchCase="WalletConnectState.Connected" (click)="disconnectWallet()" type="button" class="btn btn-primary">Disconnect wallet</button>
+      <button *ngSwitchCase="WalletConnectState.Connected" [routerLink]="['/account']" type="button" class="btn btn-primary">My profile</button>
     </ng-container>
 
   </div>

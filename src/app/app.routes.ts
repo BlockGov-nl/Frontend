@@ -7,6 +7,10 @@ export const routes : Routes = [
     loadChildren : () => import('./pages/auth/auth.routes').then(m => m.routes),
   },
   {
+    path         : 'account',
+    loadChildren : () => import('./pages/account/account.routes').then(m => m.routes),
+  },
+  {
     path          : 'home',
     loadComponent : () => import('./pages/home/home.component').then(m => m.HomeComponent),
   },
