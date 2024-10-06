@@ -14,7 +14,7 @@ import { TranslateModule }   from '@ngx-translate/core';
 
 // Internal modules
 import { environment }       from '@env/environment';
-import { ReownWalletConnectService } from '@services/reown-wallet-connect.service';
+import { WalletConnectService } from '@services/wallet-connect.service';
 import { WalletConnectState } from '@enums/wallets-connect-state.enum';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -34,7 +34,7 @@ export class LayoutHeaderComponent implements OnInit
   constructor
   (
     private router : Router,
-    private walletconnectService: ReownWalletConnectService
+    private walletconnectService: WalletConnectService
   )
   {
 

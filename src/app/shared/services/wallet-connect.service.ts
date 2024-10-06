@@ -10,21 +10,21 @@ import { Cookies } from '@enums/cookbies.enum';
 @Injectable({
   providedIn: 'root',
 })
-export class ReownWalletConnectService {
+export class WalletConnectService {
   private stateSubject: BehaviorSubject<WalletConnectState> = new BehaviorSubject<WalletConnectState>(WalletConnectState.Disconnected);
   public state$: Observable<WalletConnectState> = this.stateSubject.asObservable();
   private addressSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public address$: Observable<string> = this.addressSubject.asObservable();
  
-  private chains= [
+  private chains = [
     {
-      id: '0x13881',  // Polygon Testnet (Mumbai) chain ID
-      token: 'POL',
-      label: 'Polygon Testnet (Mumbai)',
-      rpcUrl: 'https://rpc-mumbai.maticvigil.com'  // Common RPC URL for Mumbai Testnet
+      id: '0xaa36a7',  // Sepolia Testnet chain ID
+      token: 'ETH',
+      label: 'Sepolia Testnet',
+      rpcUrl: 'https://ethereum-sepolia-rpc.publicnode.com'  // Replace with your Infura Project ID
     }
-  ]
-
+  ];
+  
   private onboard = Onboard({
     theme:"dark",
     wallets: [injectedModule()],
@@ -66,8 +66,6 @@ export class ReownWalletConnectService {
     return false
   }
 
-
-  // Connect wallet
   async connectWallet(): Promise<void> { 
     this.stateSubject.next(WalletConnectState.Loading)  
     const wallets = await this.onboard.connectWallet()
